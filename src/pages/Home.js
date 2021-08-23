@@ -4,8 +4,6 @@ import Task from '../components/Task'
 
 const Home = (props) => {
     const {myPlants} = props
-
-    
   
     return <>
     <h2>Todays Tasks</h2>
