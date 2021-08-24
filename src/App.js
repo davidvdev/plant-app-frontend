@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import MyPlants from './pages/MyPlants';
 import Form from './components/Form';
+import FindPlant from './pages/FindPlant';
 
 
 
@@ -104,6 +105,7 @@ function App() {
         <Route path="/myplants">
           <MyPlants myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant}/>
         </Route>
+        <Route path="/search" render={(rp) => <FindPlant {...rp} myPlants={myPlants} />}/>
         <Route path="/create" render={(rp) => (
           <Form {...rp} label="create" myPlant={emptyMyPlant} handleSubmit={handleCreate}/>)}/>
         <Route path="/edit" render={(rp) => (

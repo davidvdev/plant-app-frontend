@@ -12,12 +12,13 @@ const Form = (props) => {
 
     const handleChange = (event) =>  {
         console.log(event.target.value)
-        setFormData({...formData, [event.target.value]: event.target.value})
+        setFormData({...formData, [event.target.name]: event.target.value})
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-header">
+                <a onClick={() => props.history.goBack()}><i class="fas fa-arrow-circle-left fa-lg" ></i></a>
                 <h2 className="form-title">Just one more step</h2>
                 <h4 className="form-sub-title">Build your Plant's profile!</h4>    
             </div>
