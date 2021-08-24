@@ -57,7 +57,6 @@ function App() {
   }
 
   //Gets list of all myPlants
-  // needs additional argument for user auth. will be stored in auth state
   const getMyPlants = () => {
     fetch(url + "/myplants/", {
       method: "get",
@@ -75,6 +74,7 @@ function App() {
       method: "post",
       headers: {
         "Content-Type": "application/json",
+        authorization: 'bearer ' + userAuth.token
       },
       body: JSON.stringify(newPlant),
     }).then(() => {
@@ -88,6 +88,7 @@ function App() {
       method: "put",
       headers: {
         "Content-Type": "application/json",
+        authorization: 'bearer ' + userAuth.token
       },
       body: JSON.stringify(plant),
     }).then(() => {
@@ -99,6 +100,7 @@ function App() {
   const deleteMyPlant = (plant) => {
     fetch(url + "/myplants/" + plant._id, {
       method: "delete",
+      headers: {authorization: 'bearer ' + userAuth.token}
     }).then(() => {
       getMyPlants();
     })
@@ -123,7 +125,7 @@ function App() {
         <Route exact path="/">
           <Home taskList={taskList}/>
         </Route>
-        <Route path="/myplants">
+        <Route path="/myplants" >
           <MyPlants myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant}/>
         </Route>
         <Route path="/create" render={(rp) => (

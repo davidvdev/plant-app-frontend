@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Link} from "react-router-dom"
 
 const MyPlants = (props) => {
@@ -24,9 +24,9 @@ const MyPlants = (props) => {
             {myPlants.map((plant, index) => {
                 return (
                     <div className="plant-container" onClick={() => props.selectedPlant(plant)}>
-                        <img className="plant-img" src={myPlants.plantType.picture}/>
-                        <h3 className="plant-name">{myPlants.nickname}</h3>
-                        <h4 className="plant-type">{myPlants.plantType.botName}</h4>
+                        {/* <img className="plant-img" src={myPlants.plantType.picture}/> */}
+                        <h3 className="plant-name">{plant.nickname}</h3>
+                        <h4 className="plant-type">{plant.plantType.botName}</h4>
                     </div>
                 )
             })}
