@@ -121,10 +121,10 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path='/login'>
+        <Route exact path='/'>
           <Login login={login}/>
         </Route>
-        <Route exact path="/">
+        <Route exact path="/home">
           <Home taskList={taskList}/>
         </Route>
         <Route path="/myplants" >
