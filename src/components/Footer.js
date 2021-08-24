@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Footer = (props) => {
     return (
         <div className="footer">
-            <Link to="/">
+            <Link to="/home">
               <i class="home-button fas fa-home fa-2x"></i>
             </Link>
             <Link to="/calendar">
