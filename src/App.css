@@ -13,9 +13,31 @@
     --black: #242424;
 }
 
+/* UNIVERSAL STYLING */
+* { box-sizing: border-box;}
+
 .App {
     text-align: center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: var(--black)
-    
+    color: var(--black);
 }
+
+/* FOOTER/NAV STYLING */
+.footer {
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em 3em;
+    box-shadow: 0 -2px 5px var(--gray);
+}
+
+/* LOGIN/SIGNUP STYLING */
+
+/* TASKS PAGE STYLING */
+
+/* MYPLANTS GALLERY STYLING */
+
+/* MYPLANTS DETAILS STYLING */
