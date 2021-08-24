@@ -6,9 +6,12 @@ const Home = (props) => {
     const {myPlants} = props
   
     return <>
-    <h2>Todays Tasks</h2>
-    <h4>todays date</h4>
+    <div className="task-page">
+        <h2>Todays Tasks</h2>
+        <h4>todays date</h4>
+
         <Task myPlants={myPlants} />
+    </div>
     </>
 }
 
