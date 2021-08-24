@@ -1,0 +1,21 @@
+/* Colors & Variables */
+:root {
+    /* PRIMARY COLORS */
+    --pink: #FEF2F0;
+    --salmon: #F9BAB1;
+    --green-l: #81B8A8;
+    --green-d: #326E62;
+    /* SECONDARY COLORS */
+    --blue-l: #8FA9BB;
+    --blue-d: #7492A7;
+    /* NEUTRAL COLORS */
+    --gray: #D2D2D2;
+    --black: #242424;
+}
+
+.App {
+    text-align: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--black)
+    
+}

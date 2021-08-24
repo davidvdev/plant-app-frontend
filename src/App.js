@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {Route, Switch} from "react-router-dom"
 import './App.css';
 //import components
+import Login from './pages/Login'
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import MyPlants from './pages/MyPlants';
@@ -17,6 +18,7 @@ function App() {
   const [plants, setPlants] = useState([]);
   const [myPlants, setMyPlants] = useState([]);
   const [taskList, setTaskList] = useState([]);
+  const [userAuth, setUserAuth] = useState([]);
 
   //empty myPlant
   const emptyMyPlant = {
@@ -42,9 +44,25 @@ function App() {
       .then((data) => setPlants(data.data)
   )};
 
+  // login in user
+  const login = (credentials) => {
+    fetch(url + "/user/login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials)
+    }).then((response) => response.json())
+    .then((data) => setUserAuth(data))
+    .then(() => getMyPlants())
+  }
+
   //Gets list of all myPlants
   const getMyPlants = () => {
-    fetch(url + "/myplants/")
+    fetch(url + "/myplants/", {
+      method: "get",
+      headers: {authorization: 'bearer ' + userAuth.token}
+    })
       .then((response) => response.json())
       .then((data) => setMyPlants(data.data)
   )};
@@ -57,6 +75,7 @@ function App() {
       method: "post",
       headers: {
         "Content-Type": "application/json",
+        authorization: 'bearer ' + userAuth.token
       },
       body: JSON.stringify(newPlant),
     }).then(() => {
@@ -70,6 +89,7 @@ function App() {
       method: "put",
       headers: {
         "Content-Type": "application/json",
+        authorization: 'bearer ' + userAuth.token
       },
       body: JSON.stringify(plant),
     }).then(() => {
@@ -81,6 +101,7 @@ function App() {
   const deleteMyPlant = (plant) => {
     fetch(url + "/myplants/" + plant._id, {
       method: "delete",
+      headers: {authorization: 'bearer ' + userAuth.token}
     }).then(() => {
       getMyPlants();
     })
@@ -99,10 +120,13 @@ function App() {
   return (
     <div className="App">
       <Switch>
+        <Route exact path='/login'>
+          <Login login={login}/>
+        </Route>
         <Route exact path="/">
           <Home taskList={taskList}/>
         </Route>
-        <Route path="/myplants">
+        <Route path="/myplants" >
           <MyPlants myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant}/>
         </Route>
         <Route path="/search" render={(rp) => <FindPlant {...rp} myPlants={myPlants} />}/>
