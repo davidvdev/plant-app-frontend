@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 
 const MyPlants = (props) => {
 
@@ -7,12 +8,17 @@ const MyPlants = (props) => {
     let count = myPlants.length
 
     return <>
-    <div className="myPlants-header">
+    <div className="my-plant-header">
         <div>
-            <h2 className="myPlants-title">My Plants</h2>
+            <h2 className="my-plant-title">My Plants</h2>
             <h4>You have {count} plants in your garden!</h4>
         </div>
-        <button><i class="fas fa-plus fa-2x"></i></button>
+        <div className="my-plant-icons">
+            <Link to="/create">
+                <i class="fas fa-plus fa-2x"></i>
+            </Link>
+            <i class="fas fa-search fa-2x"></i>
+        </div>
     </div>
         <div className="plant-container">
             {myPlants.map((plant, index) => {
