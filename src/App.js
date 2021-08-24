@@ -5,6 +5,7 @@ import './App.css';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import MyPlants from './pages/MyPlants';
+import Form from './components/Form';
 
 
 
@@ -20,27 +21,38 @@ function App() {
   const emptyMyPlant = {
     nickname: "",
     waterFrequency: 1,
+    waterAmount: 50,
     sunlight: "",
     temperature: 70,
   }
 
   //state to track selected plant
-  const [selectedPlant, setSelectedPlant] = useState(null)
+  const [selectedPlant, setSelectedPlant] = useState(emptyMyPlant)
 
+  //updates the selectedPlant state to track active plant
+  const selectPlant = (plant) => {
+    setSelectedPlant(plant)
+  };
 
+  //Gets list of all Plants
+  const getPlants = () => {
+    fetch(url + "/plants/")
+      .then((response) => response.json())
+      .then((data) => setPlants(data.data)
+  )};
 
   //Gets list of all myPlants
   const getMyPlants = () => {
-    fetch(url + "/plants/")
+    fetch(url + "/myplants/")
       .then((response) => response.json())
       .then((data) => setMyPlants(data.data)
   )};
 
-  useEffect(() => {getMyPlants()}, []);
+  useEffect(() => {getPlants()}, []);
 
   //Creates new myPlant
   const handleCreate = (newPlant) => {
-    fetch(url + "/plants/", {
+    fetch(url + "/myplants/", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +65,7 @@ function App() {
 
   //Update existing
   const handleUpdate = (plant) => {
-    fetch(url + "/plants/" + plant._id, {
+    fetch(url + "/myplants/" + plant._id, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +78,7 @@ function App() {
 
   //Deletes a plant from myPlants
   const deleteMyPlant = (plant) => {
-    fetch(url + "/plants/" + plant._id, {
+    fetch(url + "/myplants/" + plant._id, {
       method: "delete",
     }).then(() => {
       getMyPlants();
@@ -90,8 +102,12 @@ function App() {
           <Home taskList={taskList}/>
         </Route>
         <Route path="/myplants">
-          <MyPlants myPlants={myPlants} selectedPlant={selectedPlant} />
+          <MyPlants myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant}/>
         </Route>
+        <Route path="/create" render={(rp) => (
+          <Form {...rp} label="create" myPlant={emptyMyPlant} handleSubmit={handleCreate}/>)}/>
+        <Route path="/edit" render={(rp) => (
+          <Form {...rp} label="edit" myPlant={selectedPlant} handleSubmit={handleUpdate}/>)}/>
       </Switch>
       <Footer/>
     </div>
