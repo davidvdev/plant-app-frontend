@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 import "../App.css"
 
-
-const Login = (props) => {
+const SignUp = (props) => {
 
     const history = useHistory();
 
@@ -19,34 +18,34 @@ const Login = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.login(formData)
-        history.push("/home")
+        props.signUp(formData)
+        history.push("/login")
     }
 
     return (
-        <div className="login-screen">
-            <div className="hero-image">
-                
-            </div>
-            <div className="login-block">
-                <div className="login-header">
+        <div className="signup-screen">
+            <div className="signup-block">
+                <div className="signup-header">
                     <Link to="/">
                         <i class="fas fa-arrow-circle-left fa-2x" style={{color: "gray"}} ></i>
                     </Link>
-                <h1>Welcome Back!</h1>
+                    <h1>Create Account</h1>
                 </div>
                 <form onSubmit={handleSubmit}>
+                    {/* <label for='name'>Name:</label>
+                    <input type='text' name='name' id='name' onChange={handleChange} />
+                    <br /> */}
                     <label for='username'>username:</label>
                     <input type='text' name='username' id='username' onChange={handleChange} />
                     <br />
                     <label for='password'>password:</label>
                     <input type='password' name='password' id='password' onChange={handleChange} />
                     <br />
-                    <input className="login-button" type='submit' value='Login' style={{alignSelf: "center"}} />
+                    <input className="signup-button" type='submit' value='Register' style={{alignSelf: "center"}}/>
                 </form>
             </div>
         </div>
     )
-}
+};
 
-export default Login
+export default SignUp

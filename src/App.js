@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import {Route, Switch} from "react-router-dom"
 import './App.css';
 //import components
+import Onboarding from './pages/Onboarding';
+import SignUp from './pages/SignUp';
 import Login from './pages/Login'
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -48,6 +50,19 @@ function App() {
   // login in user
   const login = (credentials) => {
     fetch(url + "/user/login", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials)
+    }).then((response) => response.json())
+    .then((data) => setUserAuth(data))
+    .then(() => getMyPlants())
+  }
+
+  //sign up user
+  const signUp = (credentials) => {
+    fetch(url + "/user/signup", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -121,23 +136,41 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/">
+          <Onboarding/>
+        </Route>
+        <Route path='/signup'>
+          <SignUp signUp={signUp}/>
+        </Route>
+        <Route path='/login'>
           <Login login={login}/>
         </Route>
-        <Route exact path="/home">
-          <Home taskList={taskList}/>
+        <Route path="/home" render={(rp) => 
+          <div>
+            <Home {...rp} taskList={taskList}/>
+            <Footer/>
+          </div>}>
         </Route>
-        <Route path="/myplants" >
-          <MyPlants myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant}/>
-        </Route>
-        <Route path="/current-plant" render={(rp) => <PlantCard {...rp} myPlant={selectedPlant}/>}/>
-        <Route path="/search" render={(rp) => <FindPlant {...rp} myPlants={myPlants} />}/>
-        <Route path="/create" render={(rp) => (
-          <Form {...rp} label="create" myPlant={emptyMyPlant} handleSubmit={handleCreate}/>)}/>
+        <Route path="/myplants" render={(rp) => 
+          <div>
+            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant}/>
+            <Footer/>
+          </div>}/>
+        <Route path="/current-plant" render={(rp) => 
+          <div>
+            <PlantCard {...rp} myPlant={selectedPlant}/>
+            <Footer/>
+          </div>}/>
+        <Route path="/search" render={(rp) => 
+          <div>
+            <FindPlant {...rp} myPlants={myPlants} />
+            <Footer/>
+          </div>}/>
+        <Route path="/create" render={(rp) => 
+          <Form {...rp} label="create" myPlant={emptyMyPlant} handleSubmit={handleCreate}/>}/>
         <Route path="/edit" render={(rp) => (
           <Form {...rp} label="edit" myPlant={selectedPlant} handleSubmit={handleUpdate}/>)}/>
       </Switch>
-      <Footer/>
     </div>
   );
 }

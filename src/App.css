@@ -31,6 +31,16 @@ h4 {
     font-size: 0.75rem;
 }
 
+form input {
+    border-radius: 1.5em;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+form label {
+    margin-left: 15px;
+}
+
 /* FOOTER/NAV STYLING */
 .footer {
     position:absolute;
@@ -51,7 +61,51 @@ h4 {
     color: var(--salmon);
 }
 
-/* LOGIN/SIGNUP STYLING */
+
+
+/* ONBOARDING/LOGIN/SIGNUP STYLING */
+.onboarding-buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.onboarding-button, .login-button, .signup-button {
+    margin-top: 15px;
+    width: 200px;
+    border-radius: 1em;
+    padding: 5px;
+}
+
+.fa-arrow-circle-left:before {
+    margin-right: 30px;
+}
+.signup-header {
+    display: flex;
+    align-items: center; 
+}
+
+.signup-header>i {
+    margin-right: 20px;
+}
+
+.signup-block {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-block form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.login-header {
+    display: flex;
+    align-items: center;
+}
+
 .login-screen {
     display: flex;
     flex-direction: column;
@@ -64,7 +118,10 @@ h4 {
 
 .login-block {
     height: 50vh;
+    display: flex;
+    flex-direction: column;
 }
+
 .login-block form {
     display: flex;
     flex-direction: column;
