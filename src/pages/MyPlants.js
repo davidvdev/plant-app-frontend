@@ -25,11 +25,13 @@ const MyPlants = (props) => {
         <div className="plant-container">
             {myPlants.map((plant, index) => {
                 return (
-                    <div className="plant-container" onClick={() => props.selectedPlant(plant)}>
-                        {/* <img className="plant-img" src={myPlants.plantType.picture}/> */}
-                        <h3 className="plant-name">{plant.nickname}</h3>
-                        <h4 className="plant-type">{plant.plantType.botName}</h4>
-                    </div>
+                    <Link to="/current-plant">
+                        <div className="plant-container" onClick={() => props.selectedPlant(plant)}>
+//                             <img className="plant-img" src={plant.plantType.picture}/>
+                            <h3 className="plant-name">{plant.nickname}</h3>
+                            <h4 className="plant-type">{plant.plantType.botName}</h4>
+                        </div>
+                    </Link>
                 )
             })}
         </div>
