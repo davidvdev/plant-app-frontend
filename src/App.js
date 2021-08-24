@@ -42,6 +42,7 @@ function App() {
   )};
 
   //Gets list of all myPlants
+  // needs additional argument for user auth. will be stored in auth state
   const getMyPlants = () => {
     fetch(url + "/myplants/")
       .then((response) => response.json())
