@@ -18,17 +18,21 @@ const Login = (props) => {
 
     return (
         <div className="login-screen">
-            <h1>Welcome!</h1>
-            <h2>please login or signup to continue</h2>
-            <form onSubmit={handleSubmit}>
-                <label for='username'>username:</label>
-                <input type='text' name='username' id='username' onChange={handleChange} />
-                <br />
-                <label for='password'>password:</label>
-                <input type='password' name='password' id='password' onChange={handleChange} />
-                <br />
-                <input type='submit' value='login' />
-            </form>
+            <div className="hero-image">
+                
+            </div>
+            <div className="login-block">
+                <h1>Welcome Back!</h1>
+                <form onSubmit={handleSubmit}>
+                    <label for='username'>username:</label>
+                    <input type='text' name='username' id='username' onChange={handleChange} />
+                    <br />
+                    <label for='password'>password:</label>
+                    <input type='password' name='password' id='password' onChange={handleChange} />
+                    <br />
+                    <input type='submit' value='login' />
+                </form>
+            </div>
         </div>
     )
 }
