@@ -52,7 +52,24 @@ h4 {
 }
 
 /* LOGIN/SIGNUP STYLING */
+.login-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.hero-image {
+    height: 30vh;
+}
+
+.login-block {
+    height: 50vh;
+}
+.login-block form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
 /* TASKS PAGE STYLING */
 
 .task-bar {
