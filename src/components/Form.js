@@ -57,7 +57,7 @@ const Form = (props) => {
                 />
                 <h3 className="form-question">How much sunlight does your plant require?</h3>
                 <label for="sun">Choose a value:</label>
-                <select id="sun" name="sun" onChange="this.form.submit()">
+                <select id="sun" name="sunlight" onChange={handleChange}>
                     <option value="sun">Full sun</option>
                     <option value="partial">Partial</option>
                     <option value="shade">Full Shade</option>
