@@ -17,7 +17,9 @@ const MyPlants = (props) => {
             <Link to="/create">
                 <i class="fas fa-plus fa-2x"></i>
             </Link>
-            <i class="fas fa-search fa-2x"></i>
+            <Link to="/search">
+                <i class="fas fa-search fa-2x"></i>
+            </Link>
         </div>
     </div>
         <div className="plant-container">
