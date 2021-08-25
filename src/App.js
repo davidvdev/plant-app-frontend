@@ -168,7 +168,7 @@ function App() {
         </Route>
         <Route path="/myplants" render={(rp) => 
           <div>
-            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant}/>
+            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant} getMyPlants={getMyPlants}/>
             <Footer/>
           </div>}/>
         <Route path="/current-plant" render={(rp) => 
