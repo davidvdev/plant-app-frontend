@@ -180,9 +180,9 @@ function App() {
             <Footer/>
           </div>}/>
         <Route path="/create" render={(rp) => 
-          <Form {...rp} label="create" myPlant={emptyMyPlant} handleSubmit={handleCreate}/>}/>
+          <Form {...rp} label="create" myPlant={emptyMyPlant} plants={plants} handleSubmit={handleCreate}/>}/>
         <Route path="/edit" render={(rp) => (
-          <Form {...rp} label="edit" myPlant={selectedPlant} handleSubmit={handleUpdate}/>)}/>
+          <Form {...rp} label="edit" myPlant={selectedPlant} plants={plants} handleSubmit={handleUpdate}/>)}/>
       </Switch>
     </div>
   );
