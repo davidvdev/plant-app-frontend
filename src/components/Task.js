@@ -4,7 +4,6 @@ import "../App.css"
 const Task = (props) => {
 
     const { tasks } = props
-    console.log("tasks: ", tasks)
 
     const loading = () => {<h1> loading...</h1>}
 
@@ -12,7 +11,6 @@ const Task = (props) => {
 
         const handleClick = (item) => {
             const {url, userAuth} = props
-            console.log(item)
 
             fetch(url + "/myplants/" + item._id, {
                 method: "put",
