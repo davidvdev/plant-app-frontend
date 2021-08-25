@@ -176,6 +176,10 @@ form label {
     background-color: var(--salmon);
 }
 
+.plant-container img {
+    max-width: 100%;
+}
+
 /* MYPLANTS DETAILS STYLING */
 
 

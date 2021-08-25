@@ -97,6 +97,7 @@ function App() {
   )};
 
   useEffect(() => {getPlants()}, []);
+  useEffect(() => {getMyPlants()}, [userAuth]);
 
   //Creates new myPlant
   const handleCreate = (newPlant) => {
@@ -156,17 +157,18 @@ function App() {
           <SignUp signUp={signUp}/>
         </Route>
         <Route path='/login'>
-          <Login login={login}/>
+          <Login login={login} getMyPlants={getMyPlants}/>
         </Route>
+
         <Route path="/home" render={(rp) => 
           <div>
-            <Home {...rp} taskList={taskList}/>
+            <Home {...rp} taskList={taskList} myPlants={myPlants} getMyPlants={getMyPlants} url={url} userAuth={userAuth}/>
             <Footer/>
           </div>}>
         </Route>
         <Route path="/myplants" render={(rp) => 
           <div>
-            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant}/>
+            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant} getMyPlants={getMyPlants}/>
             <Footer/>
           </div>}/>
         <Route path="/current-plant" render={(rp) => 
