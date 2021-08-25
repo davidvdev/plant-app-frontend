@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import {Link} from "react-router-dom"
+import "../App.css"
 
 const MyPlants = (props) => {
 
@@ -28,11 +29,11 @@ const MyPlants = (props) => {
                 </Link>
             </div>
         </div>
-            <div className="plant-container">
+            <div className="my-plant-container">
                 {myPlants.map((plant, index) => {
                     return (
                         <Link to="/current-plant">
-                            <div className="plant-container" onClick={() => props.selectedPlant(plant)}>
+                            <div className="plant-container" onClick={() => props.selectPlant(plant)}>
                                 <img className="plant-img" src={plant.plantType.picture}/>
                                 <h3 className="plant-name">{plant.nickname}</h3>
                                 <h4 className="plant-type">{plant.plantType.botName}</h4>

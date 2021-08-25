@@ -1,12 +1,17 @@
 import React from 'react'
+import "../App.css"
 
 const PlantCard = (props) => {
 
     const { myPlant } = props
 
     return <>
-        <a onClick={() => props.history.goBack()}><i class="fas fa-arrow-circle-left fa-lg" ></i></a>
+        
         <div className="card-container">
+            <div className="card-img-header">
+                <a onClick={() => props.history.goBack()}><i class="fas fa-arrow-circle-left fa-lg" ></i></a>
+                <img src={myPlant.plantType.picture}/>
+            </div>
             <div className="card-header">
                 <div>
                     <h2 className="card-name">{myPlant.nickname}</h2>
