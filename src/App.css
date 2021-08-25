@@ -177,3 +177,31 @@ form label {
 }
 
 /* MYPLANTS DETAILS STYLING */
+
+
+/* FORM STYLING */
+.form-header {
+    display: flex;
+}
+
+.form-title, .form-sub-title  {
+    align-self: center;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-question {
+    margin-bottom: 0;
+    margin-left: 15px;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+#sun {
+    margin-top: 10px;
+    width: 50vw;
+    align-self: center;
+}
