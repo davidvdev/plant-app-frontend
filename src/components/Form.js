@@ -1,9 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "../App.css"
 
 const Form = (props) => {
 
     const [formData, setFormData] = useState(props.myPlant)
+    const [plantNames, setPlantNames] = useState([])
+
+    //function to get all plant names and ids
+    //function to create inputs from available plants
+    const createSearchItems = () => {
+        let resultArr = props.plants.map(({type, _id}) => ({type, _id}))
+        var options = resultArr.map(x => x.type)
+        console.log(options)
+    }
+    createSearchItems()
+
+    // const updatePlantNames = () => {
+    //     setPlantNames(options)
+    // }
+ 
+    //useEffect(() => {updatePlantNames()}, []);
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -24,6 +40,13 @@ const Form = (props) => {
                     <h2 className="form-title">Just one more step</h2>
                     <h4 className="form-sub-title">Build your Plant's profile!</h4>    
                 </div>
+            </div>
+            <div className="test">
+            <h3 className="form-question">Choose a plant type?</h3>
+                <select value={formData.plantType.type}>
+                    {plantNames.map((o) => (
+                        <option value={o}>{o}</option>))}
+                </select >
             </div>
             <div className="main-form">
                 <h3 className="form-question">What's your plant's name?</h3>
