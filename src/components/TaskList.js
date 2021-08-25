@@ -16,7 +16,7 @@ const TaskList = (props) => {
       })
       .then((response) => response.json())
       .then((data) => 
-          data.data.length > 0 ? setTasks(data.data): setTasks(["All Done!"])
+          data.data.length > 0 ? setTasks(data.data): setTasks([])
           )};
 
     useEffect(() => {getTasks()},[])
