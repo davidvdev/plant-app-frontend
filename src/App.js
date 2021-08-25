@@ -97,6 +97,7 @@ function App() {
   )};
 
   useEffect(() => {getPlants()}, []);
+  useEffect(() => {getMyPlants()}, [userAuth]);
 
   //Creates new myPlant
   const handleCreate = (newPlant) => {
