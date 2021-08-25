@@ -20,7 +20,7 @@
     text-align: center;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--black);
-    padding: 0.75em;
+    padding: 0.35em;
 }
 h2, h4 {
     text-align: left;
@@ -43,7 +43,7 @@ form label {
 
 /* FOOTER/NAV STYLING */
 .footer {
-    position:absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -51,6 +51,7 @@ form label {
     justify-content: space-between;
     padding: 1.5em 3em;
     box-shadow: 0 -2px 5px var(--gray);
+    background-color: white;
 }
 
 .footer a {
@@ -177,11 +178,56 @@ form label {
 }
 
 .plant-container img {
-    max-width: 100%;
+    width: 90%;
+    height: 90%;
+    margin-top: 5px;
+    border-radius: 0.5em;
 }
 
-/* MYPLANTS DETAILS STYLING */
+.plant-container {
+    width: 40vw;
+    margin: 10px;
+    background-color: rgb(76, 199, 76);
+    border-radius: 0.5em;
+}
 
+.my-plant-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 65vh;
+    overflow: scroll;
+    justify-content: space-between;
+}
+
+.my-plant-container>a {
+    text-decoration: none;
+    color: black;
+}
+
+.plant-name {
+    margin: 5px 0 5px;
+}
+
+.plant-type {
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+/* PLANT CARD DETAILS STYLING */
+.card-container {
+    height: 80vh;
+    overflow: scroll;
+}
+
+.card-img-header>img {
+    width: 80%;
+    border: solid 3px black;
+    border-radius: .5em;
+}
+
+.card-img-header {
+    display: flex;
+}
 
 /* FORM STYLING */
 .form-header {
