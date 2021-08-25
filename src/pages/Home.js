@@ -1,5 +1,5 @@
 import React from 'react'
-import Task from '../components/Task'
+import TaskList from '../components/TaskList'
 
 
 const Home = (props) => {
@@ -10,9 +10,10 @@ const Home = (props) => {
         <h2>Todays Tasks</h2>
         <h4>todays date</h4>
 
-        <Task myPlants={myPlants} />
+        <TaskList myPlants={myPlants} />
     </div>
     </>
+
 }
 
 export default Home

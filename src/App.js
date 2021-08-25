@@ -157,11 +157,12 @@ function App() {
           <SignUp signUp={signUp}/>
         </Route>
         <Route path='/login'>
-          <Login login={login}/>
+          <Login login={login} getMyPlants={getMyPlants}/>
         </Route>
+
         <Route path="/home" render={(rp) => 
           <div>
-            <Home {...rp} taskList={taskList}/>
+            <Home {...rp} taskList={taskList} myPlants={myPlants} getMyPlants={getMyPlants}/>
             <Footer/>
           </div>}>
         </Route>

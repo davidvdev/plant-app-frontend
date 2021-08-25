@@ -1,9 +1,11 @@
 import React from 'react'
-import Task from './components/Task'
+import Task from './Task'
 
 
 const TaskList = (props) => { 
   
+    const {myPlants} = props
+
     return <>
 
     <h4>todays date</h4>
@@ -12,4 +14,4 @@ const TaskList = (props) => {
     </>
 }
 
-export default Home
+export default TaskList
