@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TaskList from '../components/TaskList'
 
 
 const Home = (props) => {
+
+    useEffect(()=>{props.getMyPlants()},[])
 
     const loading = () => {
         props.getMyPlants()
@@ -28,9 +30,9 @@ const Home = (props) => {
         return <>
         <div className="task-page">
             <h2>Todays Tasks</h2>
-            <TaskList myPlants={myPlants} dueDate={today} url={props.url} userAuth={props.userAuth} />
-            <TaskList myPlants={myPlants} dueDate={tomorrow} url={props.url} userAuth={props.userAuth} />
-            <TaskList myPlants={myPlants} dueDate={dayAfter} url={props.url} userAuth={props.userAuth} />
+            <TaskList myPlants={myPlants} dueDate={today} url={props.url} userAuth={props.userAuth} getMyPlants={props.getMyPlants} />
+            <TaskList myPlants={myPlants} dueDate={tomorrow} url={props.url} userAuth={props.userAuth} getMyPlants={props.getMyPlants} />
+            <TaskList myPlants={myPlants} dueDate={dayAfter} url={props.url} userAuth={props.userAuth} getMyPlants={props.getMyPlants} />
         </div>
         </>
     }

@@ -130,6 +130,10 @@ form label {
 }
 /* TASKS PAGE STYLING */
 
+.task-container {
+    margin: 0.5em 0;
+}
+
 .task-bar {
     display: flex;
     justify-content: space-between;
@@ -140,6 +144,8 @@ form label {
 
 .task-bar img {
     height: 100px;
+    width: 100px;
+    object-fit: cover;
     border-radius: 24px;
     margin: 0.5em;
 }
@@ -152,6 +158,15 @@ form label {
 .task-info h4, .task-info h3 {
     margin: 0;
     text-align: left;
+}
+
+.task-action {
+    background-color: var(--blue-d);
+    border-radius: 90px;
+    font-size: 1.2em;
+    color: white;
+    padding: 1em 1.15em;
+    margin: 0.5em;
 }
 
 /* MYPLANTS GALLERY STYLING */

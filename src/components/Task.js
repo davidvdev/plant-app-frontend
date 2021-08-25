@@ -3,29 +3,49 @@ import "../App.css"
 
 const Task = (props) => {
 
+    const { tasks } = props
+    console.log("tasks: ", tasks)
+
     const loading = () => {<h1> loading...</h1>}
 
     const loaded = () => {
-        const { tasks } = props.tasks
-        console.log("task: ", tasks)
-        // return <h2>success!</h2>
-        // if (tasks.length > 1){
-        //     return <h2>All Done!</h2>
-        // }else {
-            return <div className="task-container">
-                <div className="task-bar">
-                    <div className="plant-info">
-                        <img src="https://img.lovepik.com/free_png/28/92/98/58PIC4258PICe58PICbbqcD4az58PICHP_PIC2018.png_860.png" alt="plant" />
-                        <div className="task-info">
-                            <h3>Plant name</h3>
-                            <h4>Watering time</h4>
-                            <h4>Water amount</h4>
+
+        const handleClick = (item) => {
+            const {url, userAuth} = props
+            console.log(item)
+
+            fetch(url + "/myplants/" + item._id, {
+                method: "put",
+                headers: {authorization: 'bearer ' + userAuth.token},
+                body: JSON.stringify({lastWatering: Date.now})
+              })
+              .then((response) => response.json())
+              .then((data) => props.getTasks())};
+
+        
+
+        if (tasks.length < 1){
+            return <h2>All Done!</h2>
+        }else {
+            // return <h2>NOT Done!</h2>
+            return tasks.map(item => {
+                return (
+                <div className="task-container">
+                    <div className="task-bar">
+                        <div className="plant-info">
+                            <img src={item.plantType.picture} alt="plant" />
+                            <div className="task-info">
+                                <h3>{item.nickname}</h3>
+                                <h4>Water every {item.waterFrequency} days</h4>
+                                <h4>{item.nickname} needs {item.waterAmount}mL of water</h4>
+                            </div>
                         </div>
-                    </div>
-                    <button>img</button>
-                </div> 
-            </div>
-        // }
+                        <i class="task-action fas fa-tint" onClick={() => handleClick(item)}></i>
+                    </div> 
+                </div>
+                )
+            })
+        }
     }
 
     return props.tasks ? loaded() : loading()
