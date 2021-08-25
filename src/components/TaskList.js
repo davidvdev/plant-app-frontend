@@ -20,6 +20,7 @@ const TaskList = (props) => {
           )};
 
     useEffect(() => {getTasks()},[])
+    // getTasks()
 
     return <>
 

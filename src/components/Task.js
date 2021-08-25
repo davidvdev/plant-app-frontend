@@ -7,6 +7,7 @@ const Task = (props) => {
 
     const loaded = () => {
         const { tasks } = props.tasks
+        console.log("task: ", tasks)
         // return <h2>success!</h2>
         // if (tasks.length > 1){
         //     return <h2>All Done!</h2>
