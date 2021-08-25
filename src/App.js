@@ -162,7 +162,7 @@ function App() {
 
         <Route path="/home" render={(rp) => 
           <div>
-            <Home {...rp} taskList={taskList} myPlants={myPlants} getMyPlants={getMyPlants}/>
+            <Home {...rp} taskList={taskList} myPlants={myPlants} getMyPlants={getMyPlants} url={url} userAuth={userAuth}/>
             <Footer/>
           </div>}>
         </Route>

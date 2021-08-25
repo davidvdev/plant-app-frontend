@@ -6,19 +6,31 @@ const Home = (props) => {
 
     const loading = () => {
         props.getMyPlants()
-        
+
         return <h1>loading...</h1>
     }
 
     const loaded = () => {
         const {myPlants} = props
-    
+        
+        const today = Date().toString().split(" ").splice(1,3).toString().replaceAll(",","-")
+        let tomorrow = Date().toString().split(" ").splice(1,3)
+            tomorrow[1] = Number(tomorrow[1]) + 1
+            tomorrow = tomorrow.toString().replaceAll(",","-")
+        let dayAfter = Date().toString().split(" ").splice(1,3)
+            dayAfter[1] = Number(dayAfter[1]) + 2
+            dayAfter = dayAfter.toString().replaceAll(",","-")
+
+        console.log("today: ", today)
+        console.log("tomorrow: ", tomorrow)
+        console.log("dayAfter: ", dayAfter)
+
         return <>
         <div className="task-page">
             <h2>Todays Tasks</h2>
-            <h4>todays date</h4>
-
-            <TaskList myPlants={myPlants} />
+            <TaskList myPlants={myPlants} dueDate={today} url={props.url} userAuth={props.userAuth} />
+            <TaskList myPlants={myPlants} dueDate={tomorrow} url={props.url} userAuth={props.userAuth} />
+            <TaskList myPlants={myPlants} dueDate={dayAfter} url={props.url} userAuth={props.userAuth} />
         </div>
         </>
     }
