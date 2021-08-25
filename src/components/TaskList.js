@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Task from './Task'
 
 
 const TaskList = (props) => { 
-  
+    
+    const [tasks, setTasks] = useState([])
+
     const {myPlants} = props
 
     //Gets task list based on dueDate passed down
@@ -13,8 +15,9 @@ const TaskList = (props) => {
         headers: {authorization: 'bearer ' + props.userAuth.token}
       })
       .then((response) => response.json())
-      .then((data) => console.log(data)
-  )};
+      .then((data) => 
+          data.data.length > 0 ? setTasks(data.data): setTasks(["All Done!"])
+          )};
 
     useEffect(() => {getTasks()},[])
 
@@ -22,7 +25,7 @@ const TaskList = (props) => {
 
     <h4>{props.dueDate.replaceAll("-"," ")}</h4>
     
-        <Task myPlants={myPlants} />
+        <Task tasks={tasks} />
     </>
 }
 
