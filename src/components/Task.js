@@ -11,8 +11,18 @@ const Task = (props) => {
     const loaded = () => {
 
         const handleClick = (item) => {
+            const {url, userAuth} = props
             console.log(item)
-        }
+
+            fetch(url + "/myplants/" + item._id, {
+                method: "put",
+                headers: {authorization: 'bearer ' + userAuth.token},
+                body: JSON.stringify({lastWatering: Date.now})
+              })
+              .then((response) => response.json())
+              .then((data) => props.getTasks())};
+
+        
 
         if (tasks.length < 1){
             return <h2>All Done!</h2>

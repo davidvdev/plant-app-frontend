@@ -26,7 +26,7 @@ const TaskList = (props) => {
 
     <h4>{props.dueDate.replaceAll("-"," ")}</h4>
     
-        <Task tasks={tasks} />
+        <Task tasks={tasks} url={props.url} userAuth={props.userAuth} getTasks={getTasks} getMyPlants={props.getMyPlants}/>
     </>
 }
 
