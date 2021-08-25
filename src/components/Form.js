@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../App.css"
 
 const Form = (props) => {
 
@@ -7,7 +8,7 @@ const Form = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         props.handleSubmit(formData)
-        props.history.push("/")
+        props.history.push("/home")
     };
 
     const handleChange = (event) =>  {
@@ -19,8 +20,10 @@ const Form = (props) => {
         <form onSubmit={handleSubmit}>
             <div className="form-header">
                 <a onClick={() => props.history.goBack()}><i class="fas fa-arrow-circle-left fa-lg" ></i></a>
-                <h2 className="form-title">Just one more step</h2>
-                <h4 className="form-sub-title">Build your Plant's profile!</h4>    
+                <div>
+                    <h2 className="form-title">Just one more step</h2>
+                    <h4 className="form-sub-title">Build your Plant's profile!</h4>    
+                </div>
             </div>
             <div className="main-form">
                 <h3 className="form-question">What's your plant's name?</h3>
@@ -31,7 +34,7 @@ const Form = (props) => {
                     value={formData.nickname}
                     onChange={handleChange}
                 />
-                <h3 className="form-question">How often should your plant be watered in days? (1 = everyday)</h3>
+                <h3 className="form-question">How often should your plant be watered in days? (1 = everyday, 2 = every other day)</h3>
                 <input
                     type="number"
                     name="waterFrequency"
@@ -56,10 +59,9 @@ const Form = (props) => {
                     onChange={handleChange}
                 />
                 <h3 className="form-question">How much sunlight does your plant require?</h3>
-                <label for="sun">Choose a value:</label>
-                <select id="sun" name="sunlight" onChange={handleChange}>
-                    <option value="sun">Full sun</option>
+                <select id="sun" value={formData.sunlight} name="sunlight" onChange={handleChange}>
                     <option value="partial">Partial</option>
+                    <option value="sun">Full sun</option>
                     <option value="shade">Full Shade</option>
                 </select>
                 <input 

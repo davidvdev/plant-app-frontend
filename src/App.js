@@ -26,9 +26,22 @@ function App() {
   //empty myPlant
   const emptyMyPlant = {
     nickname: "",
+    username: "",
+    plantType: [{
+      type:"", 
+      botName: "", 
+      otherNames: [], 
+      description: "", 
+      picture: "", 
+      uses: "", 
+      propagation: "", 
+      soil: "", 
+      climate: "", 
+      health: "" }],
+    lastWatering: Date.now(),
     waterFrequency: 1,
     waterAmount: 50,
-    sunlight: "",
+    sunlight: "partial",
     temperature: 70,
   }
 
