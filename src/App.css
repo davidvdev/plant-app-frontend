@@ -212,14 +212,15 @@ form label {
 .plant-container {
     width: 40vw;
     margin: 10px;
-    background-color: rgb(76, 199, 76);
+    background-color: var(--green-l);
     border-radius: 0.5em;
+    box-shadow: 0 2px 2px var(--gray);
 }
 
 .my-plant-container {
     display: flex;
     flex-wrap: wrap;
-    height: 65vh;
+    height: 70vh;
     overflow: scroll;
     justify-content: space-between;
 }
