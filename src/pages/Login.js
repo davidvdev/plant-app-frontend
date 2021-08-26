@@ -26,9 +26,6 @@ const Login = (props) => {
 
     return (
         <div className="login-screen">
-            <div className="hero-image">
-                
-            </div>
             <div className="login-block">
                 <div className="login-header">
                     <Link to="/">

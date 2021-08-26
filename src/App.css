@@ -139,10 +139,6 @@ input#password, input#username {
     justify-content: space-between;
 }
 
-.hero-image {
-    height: 30vh;
-}
-
 .login-block {
     height: 50vh;
     display: flex;

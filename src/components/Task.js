@@ -32,7 +32,7 @@ const Task = (props) => {
         
 
         if (tasks.length < 1){
-            return <h2>All Done!</h2>
+            return <h2>All Plants Watered!</h2>
         }else {
             // return <h2>NOT Done!</h2>
             return tasks.map(item => {
