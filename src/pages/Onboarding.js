@@ -4,9 +4,9 @@ import "../App.css"
 
 const Onboarding = (props) => {
     return <>
-        <i style={{color: "green"}} class="fas fa-spa fa-9x"></i><i style={{color: "green"}} class="fas fa-leaf fa-9x"></i>
-        <h1>plantie</h1>
-        <h3>Welcome! We will help you to take care of your plants!</h3>
+        <i style={{color: "green"}} class="fas fa-leaf fa-9x"></i>
+        <h1 className="app-title">plantie</h1>
+        <h3 className="welcome">Welcome! We will help you to take care of your plants!</h3>
         <div className="onboarding-buttons">
             <Link to="/signup">
                 <button className="onboarding-button">Sign up</button>

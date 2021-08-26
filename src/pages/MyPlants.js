@@ -18,7 +18,7 @@ const MyPlants = (props) => {
         <div className="my-plant-header">
             <div>
                 <h2 className="my-plant-title">My Plants</h2>
-                <h4>You have {count} plants in your garden!</h4>
+                <h4 className="count">You have {count} plants in your garden!</h4>
             </div>
             <div className="my-plant-icons">
                 <Link to="/create">

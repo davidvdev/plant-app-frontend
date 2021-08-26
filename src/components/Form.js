@@ -55,7 +55,7 @@ const Form = (props) => {
                     <h4 className="form-sub-title">Build your Plant's profile!</h4>    
                 </div>
             </div>
-            <div className="test">
+            <div className="plant-type">
             <h3 className="form-question">Choose a plant type?</h3>
                 <select name="plantid" value={formData.plantid} onChange={handleChange}>
                     {plantNames.map(item => {

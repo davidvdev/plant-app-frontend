@@ -29,16 +29,16 @@ const SignUp = (props) => {
                     <Link to="/">
                         <i class="fas fa-arrow-circle-left fa-2x" style={{color: "gray"}} ></i>
                     </Link>
-                    <h1>Create Account</h1>
+                    <h1 className="app-title">Create Account</h1>
                 </div>
                 <form onSubmit={handleSubmit}>
                     {/* <label for='name'>Name:</label>
                     <input type='text' name='name' id='name' onChange={handleChange} />
                     <br /> */}
-                    <label for='username'>username:</label>
+                    <label className="login-label" for='username'>username:</label>
                     <input type='text' name='username' id='username' onChange={handleChange} />
                     <br />
-                    <label for='password'>password:</label>
+                    <label className="login-label" for='password'>password:</label>
                     <input type='password' name='password' id='password' onChange={handleChange} />
                     <br />
                     <input className="signup-button" type='submit' value='Register' style={{alignSelf: "center"}}/>
