@@ -48,6 +48,17 @@ function App() {
     plantid: ""
   }
 
+  const emptyMyPlant2 = {
+    nickname: "",
+    username: "",
+    lastWatering: Date.now(),
+    waterFrequency: 1,
+    waterAmount: 50,
+    sunlight: "partial",
+    temperature: 70,
+    plantid: "612564cf1ed58497a0e80c9e"
+  }
+
   //state to track selected plant
   const [selectedPlant, setSelectedPlant] = useState(emptyMyPlant)
 
@@ -186,7 +197,7 @@ function App() {
             <Footer/>
           </div>}/>
         <Route path="/create" render={(rp) => 
-          <Form {...rp} label="create" myPlant={emptyMyPlant} plants={plants} handleSubmit={handleCreate}/>}/>
+          <Form {...rp} label="create" myPlant={emptyMyPlant2} plants={plants} handleSubmit={handleCreate}/>}/>
         <Route path="/edit" render={(rp) => (
           <Form {...rp} label="edit" myPlant={selectedPlant} plants={plants} handleSubmit={handleUpdate}/>)}/>
       </Switch>

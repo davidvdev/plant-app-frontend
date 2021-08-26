@@ -3,18 +3,7 @@ import "../App.css"
 
 const Form = (props) => {
 
-    const emptyMyPlant = {
-        nickname: "",
-        username: "",
-        lastWatering: Date.now(),
-        waterFrequency: 1,
-        waterAmount: 50,
-        sunlight: "partial",
-        temperature: 70,
-        plantid: "612564cf1ed58497a0e80c9e"
-      }
-
-    const [formData, setFormData] = useState(emptyMyPlant)
+    const [formData, setFormData] = useState(props.myPlant)
     const [plantNames, setPlantNames] = useState([])
 
     //function to get all plant names and ids
@@ -22,27 +11,17 @@ const Form = (props) => {
     const createSearchItems = () => {
         let resultArr = props.plants.map(({type, _id}) => ({type, _id}))
         var options = resultArr.map(x => {return {name: x.type, id : x._id}})
-        console.log(options)
         setPlantNames(options)
     }
     useEffect(()=>{createSearchItems()},[])
 
-    // const updatePlantNames = () => {
-    //     setPlantNames(options)
-    // }
- 
-    //useEffect(() => {updatePlantNames()}, []);
-
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log("ONSUBMIT: ", formData)
         props.handleSubmit(formData)
         props.history.push("/home")
     };
 
     const handleChange = (event) =>  {
-        console.log(event.target.value)
-        console.log("BEFORE CHANGE: ", formData)
         setFormData({...formData, [event.target.name]: event.target.value})
     };
 
