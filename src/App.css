@@ -253,7 +253,7 @@ form label {
 }
 
 .card-alert {
-    background-color:darkgreen;
+    background-color:var(--green-d);
     color: white;
     padding: 10px;
     border-radius: 0.5em;
@@ -261,7 +261,7 @@ form label {
 }
 .card-img-header>img {
     width: 80%;
-    border: solid 3px black;
+    border: solid 3px var(--black);
     border-radius: .5em;
 }
 
