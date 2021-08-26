@@ -4,7 +4,7 @@ import TaskList from '../components/TaskList'
 
 const Home = (props) => {
 
-    useEffect(()=>{props.getMyPlants()},[])
+    // useEffect(()=>{props.getMyPlants()},[])
 
     const loading = () => {
         props.getMyPlants()

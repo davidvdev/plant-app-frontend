@@ -20,7 +20,7 @@ const Login = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         props.login(formData)
-        props.getMyPlants()
+        // props.getMyPlants()
         history.push("/home")
     }
 

@@ -73,7 +73,7 @@ function App() {
       body: JSON.stringify(credentials)
     }).then((response) => response.json())
     .then((data) => setUserAuth(data))
-    .then(() => getMyPlants())
+    // .then(() => getMyPlants())
   }
 
   //sign up user
@@ -86,7 +86,7 @@ function App() {
       body: JSON.stringify(credentials)
     }).then((response) => response.json())
     .then((data) => setUserAuth(data))
-    .then(() => getMyPlants())
+    // .then(() => getMyPlants())
   }
 
   //Gets list of all myPlants
@@ -98,9 +98,6 @@ function App() {
       .then((response) => response.json())
       .then((data) => setMyPlants(data.data)
   )};
-
-  useEffect(() => {getPlants()}, []);
-  useEffect(() => {getMyPlants()}, [userAuth]);
 
   //Creates new myPlant
   const handleCreate = (newPlant) => {
@@ -140,6 +137,27 @@ function App() {
     })
   };
 
+  // useEffects to handle data on page loads 
+
+  useEffect(() => {getPlants()}, []);
+  useEffect(() => {getMyPlants()}, [userAuth]);
+
+  // grab states from local storage
+  useEffect(() => {
+    const userAuthValue = localStorage.getItem("userAuth-value") || ""
+    setUserAuth({"token" : userAuthValue})
+  }, [])
+  useEffect(() => {
+    const storedPlants = JSON.parse(localStorage.getItem("myPlants"))
+    setMyPlants(storedPlants)
+  }, [userAuth]);
+
+  // store states in local storage
+  useEffect(() => {localStorage.setItem("userAuth-value", userAuth.token)},[userAuth])
+  useEffect(() => {
+    const storeMyPlants = JSON.stringify(myPlants)
+    localStorage.setItem("myPlants", storeMyPlants)
+  },[myPlants])
 
   return (
     <div className="App">
