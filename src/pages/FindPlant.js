@@ -4,13 +4,19 @@ import { Link } from 'react-router-dom';
 
 const FindPlant = (props) => {
 
-    //state to store the search term
-    const [searchTerm, setSearchTerm] = useState("")
     //state to store the filtered plants
     const [results, setResults] = useState(props.myPlants)
+    //state to store the search term
+    const [searchTerm, setSearchTerm] = useState()
+
 
     const handleChange = (event) => {
         setSearchTerm(event.target.value)
+        if(searchTerm === ""){
+            setResults(props.myPlants)
+        } else {
+            setResults(props.myPlants.filter(item => item.nickname.includes(event.target.value)))
+        }
     };
 
 
