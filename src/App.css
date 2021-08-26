@@ -62,8 +62,6 @@ form label {
     color: var(--salmon);
 }
 
-
-
 /* ONBOARDING/LOGIN/SIGNUP STYLING */
 .onboarding-buttons {
     display: flex;
@@ -128,6 +126,7 @@ form label {
     flex-direction: column;
     text-align: left;
 }
+
 /* TASKS PAGE STYLING */
 .task-lists {
     height: 80vh;
@@ -143,6 +142,7 @@ form label {
     align-items: center;
     border: 2px solid var(--green-l);
     border-radius: 16px;
+    box-shadow: 0 2px 2px var(--gray);
 }
 
 .task-bar img {
@@ -150,6 +150,7 @@ form label {
     width: 100px;
     object-fit: cover;
     border-radius: 24px;
+    border: 2px solid var(--green-l);
     margin: 0.5em;
 }
 
@@ -169,7 +170,13 @@ form label {
     font-size: 1.2em;
     color: white;
     padding: 1em 1.15em;
+    box-shadow: 0 2px 2px var(--gray);
     margin: 0.5em;
+}
+
+.task-action:active {
+    box-shadow: 0 -2px 2px var(--black);
+    background-color: var(--blue-l);
 }
 
 /* MYPLANTS GALLERY STYLING */
@@ -307,7 +314,10 @@ form label {
 .photo {
     width: 150px;
     height: 175px;
-    border: 2px solid black;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid var(--black);
+    border-radius: 5px;
 }
 
 .img-block {
@@ -316,6 +326,11 @@ form label {
 
 .team-member {
     display: flex;
+    align-items: flex-start;
+    border-radius: 5px;
+    background-color: var(--green-l);
+    box-shadow: 0 2px 2px var(--gray);
+    margin: 0.5em 0;
 }
 
 .member-name {
