@@ -3,17 +3,31 @@ import "../App.css"
 
 const Form = (props) => {
 
-    const [formData, setFormData] = useState(props.myPlant)
+    const emptyMyPlant = {
+        nickname: "",
+        username: "",
+        lastWatering: Date.now(),
+        waterFrequency: 1,
+        waterAmount: 50,
+        sunlight: "partial",
+        temperature: 70,
+        plantid: ""
+      }
+
+    const [formData, setFormData] = useState(emptyMyPlant)
     const [plantNames, setPlantNames] = useState([])
+
+  
 
     //function to get all plant names and ids
     //function to create inputs from available plants
     const createSearchItems = () => {
         let resultArr = props.plants.map(({type, _id}) => ({type, _id}))
-        var options = resultArr.map(x => x.type)
+        var options = resultArr.map(x => {return {name: x.type, id : x._id}})
         console.log(options)
+        setPlantNames(options)
     }
-    createSearchItems()
+    useEffect(()=>{createSearchItems()},[])
 
     // const updatePlantNames = () => {
     //     setPlantNames(options)
@@ -23,12 +37,14 @@ const Form = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        console.log("ONSUBMIT: ", formData)
         props.handleSubmit(formData)
         props.history.push("/home")
     };
 
     const handleChange = (event) =>  {
         console.log(event.target.value)
+        console.log("BEFORE CHANGE: ", formData)
         setFormData({...formData, [event.target.name]: event.target.value})
     };
 
@@ -43,9 +59,12 @@ const Form = (props) => {
             </div>
             <div className="test">
             <h3 className="form-question">Choose a plant type?</h3>
-                <select value={formData.plantType.type}>
-                    {plantNames.map((o) => (
-                        <option value={o}>{o}</option>))}
+                <select name="plantid" value={formData.plantid} onChange={handleChange}>
+                    {plantNames.map(item => {
+                        return(
+                            <option value={item.id}>{item.name}</option>
+                        )
+                    })}
                 </select >
             </div>
             <div className="main-form">

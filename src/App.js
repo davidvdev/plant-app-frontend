@@ -43,6 +43,7 @@ function App() {
     waterAmount: 50,
     sunlight: "partial",
     temperature: 70,
+    plantid: ""
   }
 
   //state to track selected plant

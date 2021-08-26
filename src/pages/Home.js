@@ -23,10 +23,6 @@ const Home = (props) => {
             dayAfter[1] = Number(dayAfter[1]) + 2
             dayAfter = dayAfter.toString().replaceAll(",","-")
 
-        console.log("today: ", today)
-        console.log("tomorrow: ", tomorrow)
-        console.log("dayAfter: ", dayAfter)
-
         return <>
         <div className="task-page">
             <h2>Todays Tasks</h2>
