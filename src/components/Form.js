@@ -11,13 +11,11 @@ const Form = (props) => {
         waterAmount: 50,
         sunlight: "partial",
         temperature: 70,
-        plantid: ""
+        plantid: "612564cf1ed58497a0e80c9e"
       }
 
     const [formData, setFormData] = useState(emptyMyPlant)
     const [plantNames, setPlantNames] = useState([])
-
-  
 
     //function to get all plant names and ids
     //function to create inputs from available plants
