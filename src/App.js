@@ -178,7 +178,7 @@ function App() {
           </div>}/>
         <Route path="/search" render={(rp) => 
           <div>
-            <FindPlant {...rp} myPlants={myPlants} />
+            <FindPlant {...rp} myPlants={myPlants} selectPlant={selectPlant}/>
             <Footer/>
           </div>}/>
         <Route path="/create" render={(rp) => 
