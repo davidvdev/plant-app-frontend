@@ -5,7 +5,7 @@ const TeamPage = (props) => {
     return <div className="team-page-container">
         <div className="team-member">
             <div className="img-block">
-                <img className="photo" src="https://i1.wp.com/inforrm.org/wp-content/uploads/2018/06/unknown.jpg?ssl=1"/>
+                <img className="photo" src="https://i.imgur.com/CAop0pu.jpg"/>
                 <div className="overlay">
                     <a href="https://www.linkedin.com/in/davidvdev/">
                         <div className="text">Let's Connect</div>
@@ -16,7 +16,7 @@ const TeamPage = (props) => {
                 <p className="title">Full-Stack Developer</p>
             </div>
             <div className="bio-block">
-                <p className="bio">Bio goes here</p>
+                <p className="bio">I am a fullstack software developer from Minneapolis, Minnesota with a driving motivation to help others solve problems and find joy using tech. Technology is innately human centric, and can assist us in bridging divides between people, cultures, and ideologies. I see empathy as a core human need, and my aim is to design software that recognizes humanity in all of us.</p>
             </div>
         </div>
         <div className="team-member">
