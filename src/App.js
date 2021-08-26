@@ -138,15 +138,6 @@ function App() {
     })
   };
 
-  //adds tasks to taskList
-  // const addTask = () => {
-  //   const date = new Date()
-  //   console.log(date - myPlants.waterAmount)
-  //   if (date - myPlants.waterAmount > waterFrequency) {
-      
-  //   }
-  //   // setTaskList([...taskList, task])
-  // }
 
   return (
     <div className="App">
@@ -169,12 +160,12 @@ function App() {
         </Route>
         <Route path="/myplants" render={(rp) => 
           <div>
-            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant} getMyPlants={getMyPlants}/>
+            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} getMyPlants={getMyPlants}/>
             <Footer/>
           </div>}/>
         <Route path="/current-plant" render={(rp) => 
           <div>
-            <PlantCard {...rp} myPlant={selectedPlant}/>
+            <PlantCard {...rp} myPlant={selectedPlant} selectPlant={selectPlant} deleteMyPlant={deleteMyPlant}/>
             <Footer/>
           </div>}/>
         <Route path="/search" render={(rp) => 

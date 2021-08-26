@@ -129,7 +129,10 @@ form label {
     text-align: left;
 }
 /* TASKS PAGE STYLING */
-
+.task-lists {
+    height: 80vh;
+    overflow: scroll;
+}
 .task-container {
     margin: 0.5em 0;
 }
@@ -230,10 +233,24 @@ form label {
 
 /* PLANT CARD DETAILS STYLING */
 .card-container {
-    height: 80vh;
+    height: 85vh;
     overflow: scroll;
 }
 
+.card-header {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.card-alert {
+    background-color:darkgreen;
+    color: white;
+    padding: 10px;
+    border-radius: 0.5em;
+
+}
 .card-img-header>img {
     width: 80%;
     border: solid 3px black;
@@ -242,6 +259,21 @@ form label {
 
 .card-img-header {
     display: flex;
+}
+
+.card-stats {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 25px;
+}
+.stat {
+    width: 125px;
+    display: flex;
+    margin: 15px;
+}
+
+.stat-info {
+    margin-left: 10px;
 }
 
 /* FORM STYLING */
