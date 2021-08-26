@@ -34,13 +34,13 @@ const Login = (props) => {
                     <Link to="/">
                         <i class="fas fa-arrow-circle-left fa-2x" style={{color: "gray"}} ></i>
                     </Link>
-                <h1>Welcome Back!</h1>
+                <h1 className="app-title">Welcome Back!</h1>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <label for='username'>username:</label>
+                    <label className="login-label" for='username'>username:</label>
                     <input type='text' name='username' id='username' onChange={handleChange} />
                     <br />
-                    <label for='password'>password:</label>
+                    <label className="login-label" for='password'>password:</label>
                     <input type='password' name='password' id='password' onChange={handleChange} />
                     <br />
                     <input className="login-button" type='submit' value='Login' style={{alignSelf: "center"}} />

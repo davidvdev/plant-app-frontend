@@ -6,6 +6,12 @@ const TeamPage = (props) => {
         <div className="team-member">
             <div className="img-block">
                 <img className="photo" src="https://i.imgur.com/CAop0pu.jpg"/>
+                <div className="overlay">
+                    <a href="https://www.linkedin.com/in/davidvdev/">
+                        <div className="text">Let's Connect</div>
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
                 <p className="member-name">David Vogel</p>
                 <p className="title">Full-Stack Developer</p>
             </div>
@@ -16,6 +22,12 @@ const TeamPage = (props) => {
         <div className="team-member">
             <div className="img-block">
                 <img className="photo" src="https://i.imgur.com/K1IOrqE.jpg?2"/>
+                <div className="overlay">
+                    <a href="https://www.linkedin.com/in/anthony-lofredo/">
+                        <div className="text">Let's Connect</div>
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
                 <p className="member-name">Anthony Lofredo</p>
                 <p className="title">Full-Stack Developer</p>
             </div>

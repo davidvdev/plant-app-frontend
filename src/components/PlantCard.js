@@ -48,15 +48,17 @@ const PlantCard = (props) => {
                         <p>{myPlant.temperature} °F</p>
                     </div>
                 </div>
-                <div className="card-buttons">
-                    <button className="edit-button" onClick={() => {
-                         props.selectPlant(myPlant)
-                         props.history.push("/edit")
-                        }}>Edit</button>
-                    <button className="delete-button" onClick={() => {
-                        props.deleteMyPlant(myPlant)
-                        props.history.push("/myplants")
-                        }}>Delete</button>
+                <div >
+                    <div className="card-buttons">
+                        <button className="edit-button" onClick={() => {
+                            props.selectPlant(myPlant)
+                            props.history.push("/edit")
+                            }}>Edit</button>
+                        <button className="delete-button" onClick={() => {
+                            props.deleteMyPlant(myPlant)
+                            props.history.push("/myplants")
+                            }}>Delete</button>
+                    </div>
                 </div>
             </div>
             <hr />
@@ -66,8 +68,8 @@ const PlantCard = (props) => {
             </div>
             <hr />
             <div className="card-health">
-                <h3>Health</h3>
-                <p>{myPlant.plantType.health}</p>
+                <h3>Uses</h3>
+                <p>{myPlant.plantType.uses}</p>
             </div>
         </div>
     </>
