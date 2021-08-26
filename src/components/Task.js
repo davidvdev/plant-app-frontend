@@ -13,14 +13,21 @@ const Task = (props) => {
         const handleClick = (item) => {
             const {url, userAuth} = props
             console.log(item)
+            const date = Date.now()
 
             fetch(url + "/myplants/" + item._id, {
                 method: "put",
-                headers: {authorization: 'bearer ' + userAuth.token},
-                body: JSON.stringify({lastWatering: Date.now})
+                headers: {
+                    "Content-Type":"application/json",
+                    authorization: 'bearer ' + userAuth.token
+                },
+                body: JSON.stringify({"lastWatering": date})
               })
               .then((response) => response.json())
-              .then((data) => props.getTasks())};
+              .then((data) => {
+                  console.log("data: ", data)
+                  props.getTasks()
+                })};
 
         
 
