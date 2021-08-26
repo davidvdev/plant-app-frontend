@@ -13,7 +13,7 @@ const Footer = (props) => {
             <Link to="/myplants">
                 <i class="fas fa-seedling fa-2x"></i>
             </Link>
-            <Link to="/account">
+            <Link to="/team">
                 <i class="fas fa-user fa-2x"></i>
             </Link> 
         </div>

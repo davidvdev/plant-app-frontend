@@ -11,6 +11,7 @@ import MyPlants from './pages/MyPlants';
 import Form from './components/Form';
 import FindPlant from './pages/FindPlant';
 import PlantCard from './components/PlantCard';
+import TeamPage from './pages/TeamPage';
 
 
 
@@ -171,6 +172,11 @@ function App() {
         <Route path="/search" render={(rp) => 
           <div>
             <FindPlant {...rp} myPlants={myPlants} selectPlant={selectPlant}/>
+            <Footer/>
+          </div>}/>
+          <Route path="/team" render={(rp) => 
+          <div>
+            <TeamPage {...rp}/>
             <Footer/>
           </div>}/>
         <Route path="/create" render={(rp) => 

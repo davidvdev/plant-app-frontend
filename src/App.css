@@ -302,3 +302,36 @@ form label {
     width: 50vw;
     align-self: center;
 }
+
+/* TEAM PAGE STYLING */
+.photo {
+    width: 150px;
+    height: 175px;
+    border: 2px solid black;
+}
+
+.img-block {
+    margin: 10px;
+}
+
+.team-member {
+    display: flex;
+}
+
+.member-name {
+    margin: 5px 0 0;
+}
+
+.title {
+    font-size: .7em;
+    margin: 5px 0 0;
+}
+
+.bio {
+    font-size: 0.8em;
+}
+
+.bio-block {
+    display: flex;
+    align-items: center;
+}
