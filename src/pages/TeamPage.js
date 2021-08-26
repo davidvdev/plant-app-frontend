@@ -7,7 +7,7 @@ const TeamPage = (props) => {
             <div className="img-block">
                 <img className="photo" src="https://i1.wp.com/inforrm.org/wp-content/uploads/2018/06/unknown.jpg?ssl=1"/>
                 <div className="overlay">
-                    <a href="https://www.linkedin.com">
+                    <a href="https://www.linkedin.com/in/davidvdev/">
                         <div className="text">Let's Connect</div>
                         <i class="fab fa-linkedin"></i>
                     </a>
