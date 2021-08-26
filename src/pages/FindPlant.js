@@ -33,6 +33,7 @@ const FindPlant = (props) => {
                 onChange={handleChange}
             />
         </div>
+        <div className="my-plant-container">
         {results.map(item => {
             return (
                     <Link to="/current-plant">
@@ -45,6 +46,7 @@ const FindPlant = (props) => {
                     )
             }   
             )}
+        </div>
     </>
 };
 
