@@ -11,6 +11,8 @@ import MyPlants from './pages/MyPlants';
 import Form from './components/Form';
 import FindPlant from './pages/FindPlant';
 import PlantCard from './components/PlantCard';
+import TeamPage from './pages/TeamPage';
+import CalendarPage from './pages/CalendarPage';
 
 
 
@@ -138,15 +140,6 @@ function App() {
     })
   };
 
-  //adds tasks to taskList
-  // const addTask = () => {
-  //   const date = new Date()
-  //   console.log(date - myPlants.waterAmount)
-  //   if (date - myPlants.waterAmount > waterFrequency) {
-      
-  //   }
-  //   // setTaskList([...taskList, task])
-  // }
 
   return (
     <div className="App">
@@ -169,17 +162,27 @@ function App() {
         </Route>
         <Route path="/myplants" render={(rp) => 
           <div>
-            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} deleteMyPlant={deleteMyPlant} getMyPlants={getMyPlants}/>
+            <MyPlants {...rp} myPlants={myPlants} selectPlant={selectPlant} handleCreate={handleCreate} getMyPlants={getMyPlants}/>
             <Footer/>
           </div>}/>
         <Route path="/current-plant" render={(rp) => 
           <div>
-            <PlantCard {...rp} myPlant={selectedPlant}/>
+            <PlantCard {...rp} myPlant={selectedPlant} selectPlant={selectPlant} deleteMyPlant={deleteMyPlant}/>
             <Footer/>
           </div>}/>
         <Route path="/search" render={(rp) => 
           <div>
             <FindPlant {...rp} myPlants={myPlants} selectPlant={selectPlant}/>
+            <Footer/>
+          </div>}/>
+        <Route path="/calendar" render={(rp) => 
+          <div>
+            <CalendarPage {...rp}/>
+            <Footer/>
+          </div>}/>
+        <Route path="/team" render={(rp) => 
+          <div>
+            <TeamPage {...rp}/>
             <Footer/>
           </div>}/>
         <Route path="/create" render={(rp) => 
